@@ -1,0 +1,10 @@
+.Category {
+  margin: 15px 0px;
+  border: 2px solid black;
+  height: 200px;
+  border-radius: 19px;
+  padding: 15px;
+}
+.CategoryBtn {
+  margin: 5px;
+}
