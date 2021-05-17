@@ -101,7 +101,7 @@ const Blog = () => {
               molestie at elementum eu facilisis.
             </p>
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-5" style={{ marginTop: "35px" }}>
             <SearchBar />
             <SelectCategory />
           </div>
