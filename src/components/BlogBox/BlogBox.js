@@ -1,19 +1,15 @@
 // import image from "./gambar1.jpg";
 const BlogContent = ({ title, article, image, writer }) => {
-  const checkSentence = (str) => {
-    const splitStr = str.split("");
-    let displayStr = [];
-    for (let i = 0; i < 73; i++) {
-      displayStr.push(splitStr[i]);
-    }
-    return displayStr.join("");
+  const convertBuffer = (file) => {
+    const img = new Buffer.from(file).toString("ascii");
+    // return img;
   };
-  console.log(image);
+  convertBuffer(image.data);
   return (
     <>
       <div className="card mb-3" style={{ maxWidth: "540px" }}>
         <div className="row g-0">
-          <img src={image} alt="..." className="col-md-4" />
+          {/* <img src={convertBuffer(image.data)} alt="..." className="col-md-4" /> */}
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{title}</h5>
@@ -26,7 +22,7 @@ const BlogContent = ({ title, article, image, writer }) => {
               >
                 penulis : {writer}
               </small>
-              <p className="card-text">{checkSentence(article)}...</p>
+              <p className="card-text">{article}</p>
               <p className="card-text">
                 <small className="text-muted">Last updated 3 mins ago</small>
               </p>

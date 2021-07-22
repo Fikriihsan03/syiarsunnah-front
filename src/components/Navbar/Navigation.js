@@ -14,9 +14,6 @@ const Navigation = () => {
             <Nav.Link>
               <Link to="/">Home</Link>
             </Nav.Link>
-            <Nav.Link>
-              <Link to="/blog">Blog</Link>
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

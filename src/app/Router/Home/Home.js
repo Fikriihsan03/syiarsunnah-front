@@ -1,7 +1,6 @@
 import BlogList from "../../../components/BlogBox/BlogList";
 import poster from "./poster.jpeg";
 import classes from "./Home.module.css";
-import SelectCategory from "../../../components/SelectCategory/SelectCategory";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 const Home = () => {
   return (
@@ -19,7 +18,6 @@ const Home = () => {
           </div>
           <div className="col-sm-5" style={{ marginTop: "35px" }}>
             <SearchBar />
-            <SelectCategory />
           </div>
         </div>
       </div>

@@ -1,114 +1,38 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SelectCategory from "../../components/SelectCategory/SelectCategory";
+import "./Blog.css";
 
 const Blog = () => {
-  return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-7">
-            <h1 style={{ fontSize: "36px", margin: "20px 0px" }}>
-              Hukum Meninggalkan Puasa Tanpa Udzur
-            </h1>
-            <p
-              style={{
-                letterSpacing: "0.2px",
-                lineHeight: "32px",
-                fontSize: "20px",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. In
-              fermentum et sollicitudin ac orci phasellus. Nunc non blandit
-              massa enim nec dui nunc mattis. Elementum nibh tellus molestie
-              nunc non blandit. Odio ut enim blandit volutpat. Iaculis at erat
-              pellentesque adipiscing commodo. Feugiat scelerisque varius morbi
-              enim nunc faucibus. Eu lobortis elementum nibh tellus molestie
-              nunc non. Odio facilisis mauris sit amet massa vitae tortor. Non
-              sodales neque sodales ut etiam sit. Posuere morbi leo urna
-              molestie at elementum eu facilisis.
-            </p>
-            <p
-              style={{
-                letterSpacing: "0.2px",
-                lineHeight: "32px",
-                fontSize: "20px",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. In
-              fermentum et sollicitudin ac orci phasellus. Nunc non blandit
-              massa enim nec dui nunc mattis. Elementum nibh tellus molestie
-              nunc non blandit. Odio ut enim blandit volutpat. Iaculis at erat
-              pellentesque adipiscing commodo. Feugiat scelerisque varius morbi
-              enim nunc faucibus. Eu lobortis elementum nibh tellus molestie
-              nunc non. Odio facilisis mauris sit amet massa vitae tortor. Non
-              sodales neque sodales ut etiam sit. Posuere morbi leo urna
-              molestie at elementum eu facilisis.
-            </p>{" "}
-            <p
-              style={{
-                letterSpacing: "0.2px",
-                lineHeight: "32px",
-                fontSize: "20px",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. In
-              fermentum et sollicitudin ac orci phasellus. Nunc non blandit
-              massa enim nec dui nunc mattis. Elementum nibh tellus molestie
-              nunc non blandit. Odio ut enim blandit volutpat. Iaculis at erat
-              pellentesque adipiscing commodo. Feugiat scelerisque varius morbi
-              enim nunc faucibus. Eu lobortis elementum nibh tellus molestie
-              nunc non. Odio facilisis mauris sit amet massa vitae tortor. Non
-              sodales neque sodales ut etiam sit. Posuere morbi leo urna
-              molestie at elementum eu facilisis.
-            </p>{" "}
-            <p
-              style={{
-                letterSpacing: "0.2px",
-                lineHeight: "32px",
-                fontSize: "20px",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. In
-              fermentum et sollicitudin ac orci phasellus. Nunc non blandit
-              massa enim nec dui nunc mattis. Elementum nibh tellus molestie
-              nunc non blandit. Odio ut enim blandit volutpat. Iaculis at erat
-              pellentesque adipiscing commodo. Feugiat scelerisque varius morbi
-              enim nunc faucibus. Eu lobortis elementum nibh tellus molestie
-              nunc non. Odio facilisis mauris sit amet massa vitae tortor. Non
-              sodales neque sodales ut etiam sit. Posuere morbi leo urna
-              molestie at elementum eu facilisis.
-            </p>{" "}
-            <p
-              style={{
-                letterSpacing: "0.2px",
-                lineHeight: "32px",
-                fontSize: "20px",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. In
-              fermentum et sollicitudin ac orci phasellus. Nunc non blandit
-              massa enim nec dui nunc mattis. Elementum nibh tellus molestie
-              nunc non blandit. Odio ut enim blandit volutpat. Iaculis at erat
-              pellentesque adipiscing commodo. Feugiat scelerisque varius morbi
-              enim nunc faucibus. Eu lobortis elementum nibh tellus molestie
-              nunc non. Odio facilisis mauris sit amet massa vitae tortor. Non
-              sodales neque sodales ut etiam sit. Posuere morbi leo urna
-              molestie at elementum eu facilisis.
-            </p>
-          </div>
-          <div className="col-sm-5" style={{ marginTop: "35px" }}>
-            <SearchBar />
-            <SelectCategory />
+  let { id } = useParams();
+  const [blogData, setBlogData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/blogData/${id}`)
+      .then((res) => res.json())
+      .then((data) => setBlogData(data));
+  }, []);
+
+  if (blogData.length === 0) {
+    return <h1>LOADING...</h1>;
+  } else {
+    return (
+      <>
+        <div className="container">
+          <div className="row">
+            <div
+              className="col-sm-7 content"
+              dangerouslySetInnerHTML={{ __html: blogData[0].content }}
+            />
+            <div className="col-sm-5" style={{ marginTop: "35px" }}>
+              <SearchBar />
+              <SelectCategory />
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default Blog;
