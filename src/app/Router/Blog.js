@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import SelectCategory from "../../components/SelectCategory/SelectCategory";
 import "./Blog.css";
 
 const Blog = () => {
