@@ -21,6 +21,7 @@ const BlogList = () => {
         {blogData.map((_, i) => {
           return (
             <Link
+              style={{ textDecoration: "none", color: "black" }}
               to={`/blog/${blogData[i].id}`}
               key={[i]}
               onClick={() => setClicked(true)}
