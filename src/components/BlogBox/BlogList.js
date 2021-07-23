@@ -11,9 +11,9 @@ const BlogList = () => {
       .then((res) => res.json())
       .then((data) => setBlogData(data));
   }, []);
-  if (clicked) {
-    window.location.reload();
-    return false;
+
+  if (clicked === true) {
+    window.location.reload(false);
   }
   return (
     <>

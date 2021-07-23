@@ -9,7 +9,7 @@ const Blog = () => {
     fetch(`http://localhost:3001/blogData/${id}`)
       .then((res) => res.json())
       .then((data) => setBlogData(data));
-  });
+  }, []);
 
   if (blogData.length === 0) {
     return <h1>LOADING...</h1>;
