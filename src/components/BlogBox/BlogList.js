@@ -3,14 +3,21 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import BlogBox from "./BlogBox";
 // import { blogData } from "./blogData";
 
-const BlogList = () => {
+const BlogList = ({ categoryParam }) => {
   const [blogData, setBlogData] = useState([]);
   const [clicked, setClicked] = useState(false);
+
   useEffect(() => {
-    fetch("http://localhost:3001/blogData")
-      .then((res) => res.json())
-      .then((data) => setBlogData(data));
-  }, []);
+    if (categoryParam === undefined) {
+      fetch("http://localhost:3001/blogData")
+        .then((res) => res.json())
+        .then((data) => setBlogData(data));
+    } else {
+      fetch(`http://localhost:3001/blogData/${categoryParam}`)
+        .then((res) => res.json())
+        .then((data) => setBlogData(data));
+    }
+  }, [categoryParam]);
 
   if (clicked === true) {
     window.location.reload(false);
@@ -22,7 +29,7 @@ const BlogList = () => {
           return (
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              to={`/blog/${blogData[i].id}`}
+              to={`/blog/${blogData[i].category}?id=${blogData[i].id}`}
               key={[i]}
               onClick={() => setClicked(true)}
             >
@@ -31,6 +38,7 @@ const BlogList = () => {
                 title={blogData[i].title}
                 article={blogData[i].sub_title}
                 writer={blogData[i].author}
+                date={blogData[i].date}
               />
             </Link>
           );

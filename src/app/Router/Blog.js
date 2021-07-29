@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import "./Blog.css";
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const Blog = () => {
-  let { id } = useParams();
+  let { category } = useParams();
+  let query = useQuery();
+  const id = query.get("id");
   const [blogData, setBlogData] = useState([]);
+
   useEffect(() => {
-    fetch(`http://localhost:3001/blogData/${id}`)
+    fetch(`http://localhost:3001/blogData/${category}?${id}`)
       .then((res) => res.json())
       .then((data) => setBlogData(data));
   }, []);

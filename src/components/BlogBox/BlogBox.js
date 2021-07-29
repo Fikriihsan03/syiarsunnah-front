@@ -1,10 +1,17 @@
 // import image from "./gambar1.jpg";
-const BlogContent = ({ title, article, image, writer }) => {
-  const convertBuffer = (file) => {
-    const img = new Buffer.from(file).toString("ascii");
-    // return img;
-  };
-  convertBuffer(image.data);
+const BlogContent = ({ title, article, image, writer, date }) => {
+  // const convertBuffer = (file) => {
+  //   const img = new Buffer.from(file).toString("ascii");
+  //   console.log(img);
+  // };
+  // convertBuffer(image.data);
+  function convertDate(inputFormat) {
+    function pad(s) {
+      return s < 10 ? "0" + s : s;
+    }
+    var d = new Date(inputFormat);
+    return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("-");
+  }
   return (
     <>
       <div className="card mb-3" style={{ maxWidth: "540px" }}>
@@ -24,7 +31,7 @@ const BlogContent = ({ title, article, image, writer }) => {
               </small>
               <p className="card-text">{article}</p>
               <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
+                <small className="text-muted">{convertDate(date)}</small>
               </p>
             </div>
           </div>

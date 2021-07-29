@@ -10,7 +10,7 @@ function Routing() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/blog/:id" component={Blog} />
+        <Route exact path="/blog/:category" component={Blog} />
       </Switch>
       <Footer />
     </Router>
