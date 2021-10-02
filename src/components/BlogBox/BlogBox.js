@@ -1,10 +1,9 @@
 // import image from "./gambar1.jpg";
 const BlogContent = ({ title, article, image, writer, date }) => {
-  // const convertBuffer = (file) => {
-  //   const img = new Buffer.from(file).toString("ascii");
-  //   console.log(img);
-  // };
-  // convertBuffer(image.data);
+  const convertBuffer = (file) => {
+    const img = new Buffer.from(file).toString("ascii");
+    return img
+  };
   function convertDate(inputFormat) {
     function pad(s) {
       return s < 10 ? "0" + s : s;
@@ -14,9 +13,9 @@ const BlogContent = ({ title, article, image, writer, date }) => {
   }
   return (
     <>
-      <div className="card mb-3" style={{ maxWidth: "540px" }}>
+      <div className="card mb-3" style={{ maxWidth: "600" }}>
         <div className="row g-0">
-          {/* <img src={convertBuffer(image.data)} alt="..." className="col-md-4" /> */}
+          <img src={convertBuffer(image.data)} alt="..." className="col-md-4" />
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{title}</h5>
