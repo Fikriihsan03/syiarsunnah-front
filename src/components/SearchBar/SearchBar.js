@@ -1,7 +1,7 @@
-const SearchBar = () => {
+const SearchBar = ({searchChange}) => {
   return (
     <>
-      <input type="text" placeholder="Cari Judul" />
+      <input type="text" placeholder="Cari Judul" onChange ={searchChange}/>
     </>
   );
 };
