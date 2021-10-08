@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/syiarsunnah-front/static/css/main.2c5064a6.chunk.css",
+    "main.js": "/syiarsunnah-front/static/js/main.9f8e9e44.chunk.js",
+    "main.js.map": "/syiarsunnah-front/static/js/main.9f8e9e44.chunk.js.map",
+    "runtime-main.js": "/syiarsunnah-front/static/js/runtime-main.c1c5383c.js",
+    "runtime-main.js.map": "/syiarsunnah-front/static/js/runtime-main.c1c5383c.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/syiarsunnah-front/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f9367eb5.chunk.js": "/syiarsunnah-front/static/js/2.f9367eb5.chunk.js",
+    "static/js/2.f9367eb5.chunk.js.map": "/syiarsunnah-front/static/js/2.f9367eb5.chunk.js.map",
+    "static/js/3.31ce72b7.chunk.js": "/syiarsunnah-front/static/js/3.31ce72b7.chunk.js",
+    "static/js/3.31ce72b7.chunk.js.map": "/syiarsunnah-front/static/js/3.31ce72b7.chunk.js.map",
+    "index.html": "/syiarsunnah-front/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/syiarsunnah-front/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.2c5064a6.chunk.css.map": "/syiarsunnah-front/static/css/main.2c5064a6.chunk.css.map",
+    "static/js/2.f9367eb5.chunk.js.LICENSE.txt": "/syiarsunnah-front/static/js/2.f9367eb5.chunk.js.LICENSE.txt",
+    "static/media/logo.1d366520.png": "/syiarsunnah-front/static/media/logo.1d366520.png",
+    "static/media/poster.854ace84.jpeg": "/syiarsunnah-front/static/media/poster.854ace84.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c1c5383c.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f9367eb5.chunk.js",
+    "static/css/main.2c5064a6.chunk.css",
+    "static/js/main.9f8e9e44.chunk.js"
+  ]
+}
